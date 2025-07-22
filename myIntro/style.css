@@ -1,0 +1,174 @@
+/* style.css */
+
+/* 1. Google font + root colors */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --dark: #1e1e2e;
+  --light: #f5f6fa;
+  --accent: #ff8c00;
+  --text: #333;
+  --muted: #666;
+}
+
+/* 2. Base reset & smooth scroll */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--light);
+  color: var(--text);
+}
+
+/* 3. Layout grid */
+.wrapper {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: 100vh;
+}
+
+/* 4. Sidebar */
+.sidebar .contact {
+  margin-top: auto;       /* pushes it to the bottom */
+  text-align: center;
+  width: 100%;
+}
+.sidebar .phone{
+
+    color: #bbb;
+
+}
+.sidebar .contact-link {
+  display: block;
+  color: #bbb;
+  text-decoration: none;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.sidebar .contact-link:hover {
+  color: #fff;
+}
+
+.sidebar {
+  background: var(--dark);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.sidebar nav ul {
+  list-style: none;
+  width: 100%;
+}
+.sidebar nav li {
+  margin-bottom: 1.5rem;
+}
+.sidebar nav a {
+  color: #bbb;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+.sidebar nav a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* 5. Main content */
+.content {
+  padding: 2rem 3rem;
+}
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+header p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* 6. Sections */
+section {
+  margin-bottom: 4rem;
+}
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: var(--accent);
+}
+
+/* 7. Lists & headings */
+section h3 {
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+ul {
+  list-style: disc inside;
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+ul.skills li {
+  margin-bottom: 0.5rem;
+}
+
+/* 8. Project “cards” */
+.block {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.block h4 {
+  margin-bottom: 0.75rem;
+  color: var(--dark);
+  font-weight: 600;
+}
+.block ul li {
+  margin-bottom: 0.5rem;
+}
+.block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* 9. Responsive fallback */
+@media (max-width: 800px) {
+  .wrapper { grid-template-columns: 1fr; }
+  .sidebar {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+  }
+  .sidebar nav ul { display: flex; gap: 1rem; }
+  .content { padding: 1.5rem; }
+}
